@@ -61,6 +61,9 @@ display(nazioni_del_mondo.geometry.head())
 # Adesso facciamo una stampa della mappa del dataset con il titolo che mostri il CRS:
 nazioni_del_mondo.plot()
 plt.title(nazioni_del_mondo.crs.name)  # WGS84
+
+# ---------------------------------------------------------Reprojecting a GeoDataFrame---#
+
 # Possiamo riproiettare la mappa in un nuovo sistema di riferimento, in questo caso EPSG: 3395, che
 # offre una visione eurocentrica del mondo escludendo le latitudini delle zone polari
 # rimuoviamo preliminarmente il continente antartico
@@ -79,16 +82,6 @@ new_ortho_crs = '+proj=ortho +lat_0=41.8992 +lon_0=12.5450 +x_0=0 +y_0=0 +a=6370
 nazioni_del_mondo_ortho = nazioni_del_mondo.to_crs(new_ortho_crs)
 nazioni_del_mondo_ortho.plot()
 plt.axis("off")
-
-# ---------------------------------------------------------Reprojecting a GeoDataFrame---#
-
-
-
-
-
-
-
-
 
 
 
